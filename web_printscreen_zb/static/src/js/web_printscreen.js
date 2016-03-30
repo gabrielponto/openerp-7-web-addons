@@ -100,6 +100,7 @@ openerp.web_printscreen_zb = function(instance, m) {
                             model : view.model,
                             headers : header_name_list,
                             rows : export_data,
+                            name: self.name,
                      })},
                      complete: $.unblockUI
                  });
@@ -115,7 +116,8 @@ openerp.web_printscreen_zb = function(instance, m) {
                                     model : view.model,
                                     headers : header_name_list,
                                     rows : export_data,
-                                    company_name: result['name']
+                                    company_name: result['name'],
+                                    name: self.name,
                              })},
                              complete: $.unblockUI
                          });

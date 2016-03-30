@@ -94,7 +94,7 @@ class ZbExcelExport(ExcelExport):
             self.from_data(data.get('headers', []), data.get('rows', [])),
                            headers=[
                                     ('Content-Disposition', 'attachment; filename="%s"'
-                                        % data.get('model', 'Export.xls')),
+                                        % data.get('name', 'Excel') + '.xls'),
                                     ('Content-Type', self.content_type)
                                     ],
                                  cookies={'fileToken': token}
@@ -177,7 +177,7 @@ class ZbPdfExport(ExportPdf):
         return req.make_response(self.from_data(uid, data.get('headers', []), data.get('rows', []),
                                                 data.get('company_name','')),
                                  headers=[('Content-Disposition',
-                                           'attachment; filename=PDF Export'),
+                                           'attachment; filename=' + data.get('name', 'PDF') + '.pdf'),
                                           ('Content-Type', self.content_type)],
                                  cookies={'fileToken': int(token)})
 
